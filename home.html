@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Polaris</div>
+        <button class="btn" onclick="window.location.href='forms.html'">Need a Teammate?</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Teammates for Your Project</h1>
+        <p>Upload your requirements and connect with talented teammates!</p>
+        <button class="btn" onclick="window.location.href='forms.html'">Post a Requirement</button>
+    </section>
+
+    <!-- Project Cards Section -->
+    <section class="projects">
+        <h2>Open Team Listings</h2>
+        <div class="card-container" id="projectContainer">
+            <!-- Cards will load dynamically here -->
+        </div>
+    </section>
+
+    <!-- Script to Load Content -->
+    <script>
+        const projectContainer = document.getElementById('projectContainer');
+
+        // Predefined projects
+        const predefinedProjects = [
+            { title: 'AI Project', role: 'Data Scientist', deadline: '25th Dec 2024' },
+            { title: 'Web App', role: 'React Developer', deadline: '1st Jan 2025' },
+            { title: 'Blockchain', role: 'Smart Contract Dev', deadline: '10th Jan 2025' },
+            { title: 'Mobile App', role: 'Flutter Developer', deadline: '5th Jan 2025' },
+            { title: 'E-commerce Platform', role: 'Backend Developer', deadline: '15th Jan 2025' }
+        ];
+
+        // Function to create a card dynamically
+        function createCard(project) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3>${project.title}</h3>
+                <p><strong>Looking for:</strong> ${project.role}</p>
+                <p><strong>Deadline:</strong> ${project.deadline}</p>
+
+                <!-- Framework Selection -->
+                <p><strong>Framework:</strong>
+                    <select class="dropdown">
+                        <option value="" disabled selected>Select Framework</option>
+                        <optgroup label="Front-end Frameworks">
+                            <option value="React.js">React.js</option>
+                            <option value="Vue.js">Vue.js</option>
+                            <option value="Angular">Angular</option>
+                        </optgroup>
+                        <optgroup label="Back-end Frameworks">
+                            <option value="Node.js">Node.js</option>
+                            <option value="Express.js">Express.js</option>
+                            <option value="Spring Boot">Spring Boot</option>
+                        </optgroup>
+                    </select>
+                </p>
+
+                <!-- Experience Level Selection -->
+                <p><strong>Experience Level:</strong>
+                    <select class="dropdown">
+                        <option value="" disabled selected>Select Experience Level</option>
+                        <option value="New">New</option>
+                        <option value="Good">Good</option>
+                        <option value="Professional">Professional</option>
+                    </select>
+                </p>
+                <button class="btn" onclick="window.location.href='Apply.html?title=${project.title}&role=${project.role}'">Apply Now</button>
+            `;
+            projectContainer.appendChild(card);
+        }
+
+        // Load predefined cards
+        predefinedProjects.forEach(project => createCard(project));
+
+        // Load dynamic projects from localStorage
+        function loadDynamicProjects() {
+            const savedProjects = JSON.parse(localStorage.getItem('teamListings')) || [];
+            savedProjects.forEach(project => createCard(project));
+        }
+
+        // Load all projects on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDynamicProjects();
+        });
+    </script>
+</body>
+</html>

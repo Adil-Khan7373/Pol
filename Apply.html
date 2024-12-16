@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris - Application Form</title>
+    <link rel="stylesheet" href="Apply.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Polaris</div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="section signup">
+        <div class="form-container">
+            <h1>Application Form</h1>
+            <form id="applicationForm" onsubmit="submitForm(event)">
+                <label for="role">Role Applying For:</label>
+                <input type="text" id="role" placeholder="Enter role" required>
+
+                <label for="skills">Your Skills:</label>
+                <input type="text" id="skills" placeholder="Enter your skills" required>
+
+                <label for="resume">Upload Resume:</label>
+                <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+
+                <button type="submit">Submit</button>
+            </form>
+            <p id="dummyMessage" style="display: none; text-align: center; color: #83decc; margin-top: 1rem;">
+                Your application has been received. Thank you!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <p>&copy; 2024 Polaris. All rights reserved.</p>
+    </section>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('dummyMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

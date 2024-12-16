@@ -1,0 +1,161 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body and Background */
+body {
+    background-color: #060606;
+    color: #ffffff;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2e4e5a;
+    color: #83decc;
+    padding: 1rem 5%;
+    font-size: 1.2rem;
+    animation: slideIn 1s ease-out;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    animation: fadeIn 2s ease-out;
+}
+
+header nav a {
+    margin-left: 20px;
+    color: #83decc;
+    text-decoration: none;
+    transition: color 0.3s;
+    animation: fadeIn 2s ease-out;
+}
+
+header nav a:hover {
+    color: #66b8a6;
+}
+
+/* Intro Section */
+.intro {
+    margin: 3rem 10% 2rem;
+    animation: fadeIn 2s ease-out;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #83decc;
+    animation: fadeIn 1s ease-out;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #dcdcdc;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Cards Section */
+.cards-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    animation: slideUp 1s ease-out;
+}
+
+.card {
+    background-color: #3f3f45;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    width: 300px;
+    transition: transform 0.3s ease;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.card button {
+    padding: 0.7rem 1.5rem;
+    background-color: #83decc;
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #66b8a6;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #050505;
+    color: #dcdcdc;
+    font-size: 0.9rem;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

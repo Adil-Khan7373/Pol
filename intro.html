@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - POLARIS</title>
+    <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+    <header>
+        <div class="logo">POLARIS</div>
+    </header>
+
+    <div class="scroll-container">
+        <!-- Section 1: Introduction with Particle Background -->
+        <section class="section intro">
+            <canvas id="particle-canvas"></canvas>
+            <div class="section-content">
+                <h1>Welcome to POLARIS</h1>
+                <p>Connect with talented individuals for your projects.</p>
+                <!-- Proceed Button -->
+                <button onclick="proceedToNextPage()" class="btn">Proceed</button>
+            </div>
+        </section>
+
+        <!-- Section 3: Footer -->
+        <section class="section footer">
+            <p>&copy; 2024 POLARIS. All rights reserved.</p>
+        </section>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="particles.js"></script> <!-- Link to the particle script -->
+
+    <!-- JavaScript to handle "Proceed" button click -->
+    <script>
+      function proceedToNextPage() {
+          // Redirect to the next HTML document (e.g., options.html)
+          window.location.href = 'Index.html';  // Modify this URL as per the target page
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          const sections = document.querySelectorAll('.section');
+
+          const options = {
+              root: null,
+              rootMargin: '0px',
+              threshold: 0.1 // Trigger when 10% of the section is visible
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                  }
+              });
+          }, options);
+
+          sections.forEach(section => {
+              observer.observe(section);
+          });
+      });
+    </script>
+</body>
+</html>

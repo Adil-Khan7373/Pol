@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need a Teammate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">POLARIS</div>
+        <button class="btn" onclick="window.location.href='../../index.html'">Home</button>
+    </nav>
+
+    <section class="form-section">
+        <h2>Post Your Requirement</h2>
+        <form id="teamForm">
+            <label>Project Title:</label>
+            <input type="text" id="title" required>
+
+            <label>Role Required:</label>
+            <input type="text" id="role" required>
+
+            <label>Deadline:</label>
+            <input type="date" id="deadline" required>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('teamForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const title = document.getElementById('title').value;
+            const role = document.getElementById('role').value;
+            const deadline = document.getElementById('deadline').value;
+
+            // Create a new team object
+            const newTeam = { title, role, deadline };
+
+            // Retrieve existing teams from localStorage
+            const teams = JSON.parse(localStorage.getItem('teamListings')) || [];
+
+            // Add the new team to the list
+            teams.push(newTeam);
+
+            // Save the updated list back to localStorage
+            localStorage.setItem('teamListings', JSON.stringify(teams));
+
+            alert('Requirement Submitted Successfully!');
+            window.location.href = '../../index.html'; // Redirect to the listings page
+        });
+    </script>
+</body>
+</html>

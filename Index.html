@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris</title>
+    <link rel="stylesheet" href="Option.css"> <!-- Link to your custom CSS -->
+    <script src="particles.js"></script> <!-- Link to the particle script -->
+</head>
+<body>
+    <header>
+        <div class="logo">Polaris</div>
+        <nav>
+            <a href="#">Create Team</a>
+            <a href="#">Join a Team</a>
+        </nav>
+    </header>
+
+    <div class="scroll-container">
+        <!-- Section 1: Introduction with Particle Background -->
+        <section class="section intro">
+            <canvas id="particle-canvas"></canvas>
+            <div class="section-content">
+                <h1>Where Ideas Flourish Together 💡</h1>
+                <p>At the heart of progress lies collaboration. Join a community of driven individuals eager to unite their talents, share ideas, and redefine innovation. Together, we will pave the path to success.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Options Section -->
+        <section class="section options">
+            <div class="cards-section">
+                <div class="card">
+                    <img src="https://i.ibb.co/Q9DKMwS/team.gif" alt="Looking for a Team">
+                    <h2>I'm looking for a Team</h2>
+                    <button onclick="redirectToListings()">Find a Team</button>
+                </div>
+                <div class="card">
+                    <img src="https://i.ibb.co/QNLGGbS/Untitled-design-1.gif" alt="Looking for Teammates">
+                    <h2>I'm looking for Teammates</h2>
+                    <button onclick="redirectToPostForm()">Find Teammates</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Footer -->
+        <section class="section footer">
+            <p>&copy; 2024 POLARIS. All rights reserved.</p>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Particle.js for background effect
+        particlesJS('particle-canvas', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    }
+                }
+            }
+        });
+
+        function redirectToListings() {
+            window.location.href = '../../index.html';
+        }
+
+        function redirectToPostForm() {
+            window.location.href = 'forms.html';
+        }
+    </script>
+</body>
+</html>
